@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-const { userRegistration } = require('../controllers/userController')
+const { createUser, userLogin } = require('../controllers/userController')
 
 
 //----------------------------- User's API -----------------------------//
 
-router.post('/register', userRegistration)
+router.post('/register', createUser)
+router.post('/login', userLogin)
 
  
 
