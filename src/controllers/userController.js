@@ -96,10 +96,11 @@ exports.userLogin = async function (req, res) {
 
         //----------------------------- Token Generation -----------------------------//
         const token = jwt.sign({
-            userId: user._id.toString()
+            userId: user._id.toString(),
+            project: "mock_assignment",
         }, "loginApp")
 
-        res.setHeader("Authorization", token)
+        res.setHeader("authorization", token)
         const output = {
             userId: user._id,
             token: token
@@ -110,3 +111,4 @@ exports.userLogin = async function (req, res) {
         return res.status(500).send({ status: false, message: error.message })
     }
 };
+
